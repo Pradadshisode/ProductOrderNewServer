@@ -14,11 +14,11 @@ namespace Shop.Products
     {
         public ProductAppService(IRepository<Product, Guid> repository) : base(repository)
         {
-            GetPolicyName = ShopPermissions.Products.Default;
-            GetListPolicyName = ShopPermissions.Products.Default;
-            CreatePolicyName = ShopPermissions.Products.Create;
-            UpdatePolicyName = ShopPermissions.Products.Edit;
-            DeletePolicyName = ShopPermissions.Products.Delete;
+            //GetPolicyName = ShopPermissions.Products.Default;
+            //GetListPolicyName = ShopPermissions.Products.Default;
+            //CreatePolicyName = ShopPermissions.Products.Create;
+            //UpdatePolicyName = ShopPermissions.Products.Edit;
+            //DeletePolicyName = ShopPermissions.Products.Delete;
         }
     }
 }

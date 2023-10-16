@@ -15,10 +15,10 @@ public class ShopPermissionDefinitionProvider : PermissionDefinitionProvider
         myGroup.AddPermission(ShopPermissions.Dashboard.Tenant, L("Permission:Dashboard"), MultiTenancySides.Tenant);
 
 
-        var productsPermission = myGroup.AddPermission(ShopPermissions.Products.Default, L("Permission:Products"));
-        productsPermission.AddChild(ShopPermissions.Products.Create, L("Permission:Products.Create"));
-        productsPermission.AddChild(ShopPermissions.Products.Edit, L("Permission:Products.Edit"));
-        productsPermission.AddChild(ShopPermissions.Products.Delete, L("Permission:Products.Delete"));
+        //var productsPermission = myGroup.AddPermission(ShopPermissions.Products.Default, L("Permission:Products"));
+        //productsPermission.AddChild(ShopPermissions.Products.Create, L("Permission:Products.Create"));
+        //productsPermission.AddChild(ShopPermissions.Products.Edit, L("Permission:Products.Edit"));
+        //productsPermission.AddChild(ShopPermissions.Products.Delete, L("Permission:Products.Delete"));
         //Define your own permissions here. Example:
         //myGroup.AddPermission(ShopPermissions.MyPermission1, L("Permission:MyPermission1"));
     }

@@ -19,6 +19,8 @@ using Volo.Abp.Gdpr;
 using Volo.Abp.OpenIddict.EntityFrameworkCore;
 using Shop.Products;
 using Volo.Abp.EntityFrameworkCore.Modeling;
+using Shop.Orders;
+using Shop.OrderItems;
 
 namespace Shop.EntityFrameworkCore;
 
@@ -32,6 +34,9 @@ public class ShopDbContext :
 {
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
     public DbSet<Product> Products { get; set; }
+    public DbSet<Order>Orders { get; set; }
+    public DbSet<OrderItem> OrderItems { get; set; }
+
     #region Entities from the modules
 
     /* Notice: We only implemented IIdentityProDbContext and ISaasDbContext
@@ -93,6 +98,18 @@ public class ShopDbContext :
             b.ConfigureByConvention(); //auto configure for the base class props
             b.Property(x => x.Name).IsRequired().HasMaxLength(128);
         });
+
+        builder.Entity<Order>(b =>
+        {
+            b.ToTable("Orders");
+            b.ConfigureByConvention();
+            b.HasOne(x => x.Products)
+                .WithMany()
+                .HasForeignKey(x => x.ProductId) 
+                .OnDelete(DeleteBehavior.Restrict)
+                .IsRequired();
+        });
+
         //builder.Entity<YourEntity>(b =>
         //{
         //    b.ToTable(ShopConsts.DbTablePrefix + "YourEntities", ShopConsts.DbSchema);

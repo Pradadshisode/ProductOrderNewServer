@@ -9,6 +9,7 @@ namespace Shop.Products
 {
     public class Product : AuditedAggregateRoot<Guid>
     {
+        public int ProductId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
 

@@ -1,4 +1,5 @@
-﻿using Shop.Products;
+﻿using Shop.Orders;
+using Shop.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,13 @@ namespace Shop
     public class ProductStoreDataSeederContributor : IDataSeedContributor, ITransientDependency
     {
         private readonly IRepository<Product, Guid> _productRepository;
-
-        public ProductStoreDataSeederContributor(IRepository<Product,Guid> productRepository)
+        private readonly IRepository<Order, Guid> _orderRepository;
+        public ProductStoreDataSeederContributor(IRepository<Product,Guid> productRepository,IRepository<Order,Guid>orderRepository)
         {
             _productRepository = productRepository;
+            _orderRepository= orderRepository;
         }
+        
         public async Task SeedAsync(DataSeedContext context)
         {
             if(await _productRepository.GetCountAsync() <= 0) {

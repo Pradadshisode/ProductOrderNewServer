@@ -7,7 +7,7 @@ namespace Shop.Products
 {
     public class ProductDto : AuditedEntityDto<Guid>
     {
-        public Guid Id {  get; set; }
+        public int ProductId {  get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
 
